@@ -3,12 +3,12 @@ package screens;
 import javax.swing.*;
 import java.awt.*;
 
-public class ProfilePage extends JPanel {
-    public ProfilePage() {
+public class RewardsPage extends JPanel {
+    public RewardsPage() {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        JLabel label = new JLabel("311 m hui _______ ki 14yi");
+        JLabel label = new JLabel("Birju ❤ _____");
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setFont(new Font(null, Font.BOLD, 18));
 

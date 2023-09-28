@@ -1,81 +1,70 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-
 import screens.HomePage;
+import screens.ProfilePage;
+import screens.RewardsPage;
+import screens.TurfListPage;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main {
     public static void main(String[] args) {
-            HomePage home=new HomePage();
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Turf Management System");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(450, 400);
+            frame.setLayout(new BorderLayout());
+
+            JPanel navigationPanel = new JPanel();
+            navigationPanel.setLayout(new FlowLayout());
+
+            JButton homeButton = createNavigationButton("Homepage", frame);
+            JButton profileButton = createNavigationButton("Profile", frame);
+            JButton turfListButton = createNavigationButton("Turf List", frame);
+            JButton rewardsButton = createNavigationButton("Rewards", frame);
+
+            navigationPanel.add(homeButton);
+            navigationPanel.add(profileButton);
+            navigationPanel.add(turfListButton);
+            navigationPanel.add(rewardsButton);
+
+            frame.add(navigationPanel, BorderLayout.NORTH);
+
+            HomePage homePage = new HomePage();
+            frame.add(homePage, BorderLayout.CENTER);
+
+            frame.setVisible(true);
+        });
+    }
+
+    private static JButton createNavigationButton(String text, JFrame frame) {
+        JButton button = new JButton(text);
+        button.setFocusable(false);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JPanel contentPanel = (JPanel) frame.getContentPane().getComponent(1);
+                frame.remove(contentPanel);
+
+                if (text.equals("Homepage")) {
+                    HomePage homePage = new HomePage();
+                    frame.add(homePage, BorderLayout.CENTER);
+                } else if (text.equals("Profile")) {
+                    ProfilePage profilePage = new ProfilePage();
+                    frame.add(profilePage, BorderLayout.CENTER);
+                } else if (text.equals("Turf List")) {
+                    TurfListPage turfListPage = new TurfListPage();
+                    frame.add(turfListPage, BorderLayout.CENTER);
+                } else if (text.equals("Rewards")) {
+                    RewardsPage rewardsPage = new RewardsPage();
+                    frame.add(rewardsPage, BorderLayout.CENTER);
+                }
+
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
+        return button;
     }
 }
-
-//import javax.swing.*;
-//import java.awt.*;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//class TurfManagementSystemHomepage {
-//    public static void main(String[] args) {
-//        // Create the main frame
-//        JFrame frame = new JFrame("Turf Management System");
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setSize(400, 300);
-//
-//        // Create a panel to hold components
-//        JPanel panel = new JPanel();
-//        panel.setLayout(new FlowLayout());
-//
-//        // Create a button to book a turf
-//        JButton bookButton = new JButton("Book a Turf");
-//        bookButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                // Add code to handle booking here
-//                JOptionPane.showMessageDialog(frame, "Booking feature coming soon!");
-//            }
-//        });
-//
-//        // Create a list of tournaments
-//        DefaultListModel<String> tournamentListModel = new DefaultListModel<>();
-//        JList<String> tournamentList = new JList<>(tournamentListModel);
-//
-//        // Add sample tournaments
-//        tournamentListModel.addElement("Tournament 1");
-//        tournamentListModel.addElement("Tournament 2");
-//        tournamentListModel.addElement("Tournament 3");
-//
-//        // Add components to the panel
-//        panel.add(bookButton);
-//        panel.add(new JScrollPane(tournamentList));
-//
-//        // Add the panel to the frame
-//        frame.add(panel);
-//
-//        // Make the frame visible
-//        frame.setVisible(true);
-//    }
-//}
