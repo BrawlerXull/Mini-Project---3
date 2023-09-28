@@ -1,11 +1,12 @@
+package screens;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class homepage extends JFrame implements ActionListener{
+public class HomePage extends JFrame implements ActionListener{
 
-    homepage()
-    {
+    public HomePage() {
         JLabel label1=new JLabel("TurFit - Turf Management System");
         label1.setFont(new Font(null,Font.BOLD,15));
 
