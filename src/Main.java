@@ -1,7 +1,7 @@
-import screens.HomePage;
-import screens.ProfilePage;
-import screens.RewardsPage;
-import screens.TurfListPage;
+import screens.user.HomePage;
+import screens.user.ProfilePage;
+import screens.user.RewardsPage;
+import screens.user.TurfListPage;
 
 import javax.swing.*;
 import java.awt.*;

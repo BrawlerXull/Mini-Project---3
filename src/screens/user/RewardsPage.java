@@ -1,4 +1,4 @@
-package screens;
+package screens.user;
 
 import Utils.Utils;
 
